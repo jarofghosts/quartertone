@@ -1,0 +1,344 @@
+@import "./base.css";
+
+/* ------------------------------------------------------------------ shell */
+
+.shell {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: var(--spacing-md);
+  width: 100%;
+}
+
+.masthead {
+  align-items: baseline;
+  border-bottom: 2px solid var(--color-fg);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+}
+
+.masthead h1 {
+  font-size: 1.5rem;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.masthead h1 a {
+  color: var(--color-1);
+}
+
+.masthead h1 a:hover {
+  text-decoration: none;
+  color: var(--color-fg);
+}
+
+.masthead .tagline {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.masthead .spacer {
+  flex: 1;
+}
+
+footer.colophon {
+  border-top: 1px solid var(--hairline);
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-sm);
+}
+
+/* ------------------------------------------------------------------ panel */
+
+.panel {
+  border: 2px solid var(--color-fg);
+  margin-bottom: var(--spacing-md);
+}
+
+.panel > h2 {
+  border-bottom: 2px solid var(--color-fg);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  margin: 0;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  text-transform: uppercase;
+}
+
+.panel > .body {
+  padding: var(--spacing-sm);
+}
+
+.empty {
+  border: 1px dashed var(--faint);
+  color: var(--muted);
+  padding: var(--spacing-sm);
+  text-align: center;
+}
+
+/* ------------------------------------------------------------------ list */
+
+.layout {
+  display: grid;
+  gap: var(--spacing-md);
+  grid-template-columns: 15rem 1fr;
+}
+
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.facet {
+  margin-bottom: var(--spacing-md);
+}
+
+.facet h3 {
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--spacing-xs);
+  text-transform: uppercase;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.chips button {
+  font-size: 0.8rem;
+  padding: 0 var(--spacing-xs);
+}
+
+.scale-row {
+  align-items: baseline;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--color-fg);
+  display: grid;
+  gap: var(--spacing-sm);
+  grid-template-columns: 1fr auto;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  text-align: left;
+  width: 100%;
+}
+
+.scale-row:hover {
+  background: var(--color-fg);
+  color: var(--color-bg);
+}
+
+.scale-row .name {
+  font-weight: bold;
+}
+
+.scale-row .aka,
+.scale-row .fam {
+  color: inherit;
+  font-size: 0.8rem;
+  opacity: 0.65;
+}
+
+.pattern {
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+}
+
+.count {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+/* --------------------------------------------------------------- degrees */
+
+table.degrees {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table.degrees th,
+table.degrees td {
+  border-bottom: 1px solid var(--hairline);
+  padding: 2px var(--spacing-xs);
+  text-align: right;
+}
+
+table.degrees th:first-child,
+table.degrees td:first-child,
+table.degrees th:nth-child(2),
+table.degrees td:nth-child(2) {
+  text-align: left;
+}
+
+table.degrees th {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+table.degrees tr.quarter td {
+  color: var(--color-2);
+}
+
+/* ------------------------------------------------------------- roots */
+
+.roots {
+  display: grid;
+  gap: 2px;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+@media (max-width: 700px) {
+  .roots {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.roots button {
+  font-size: 0.8rem;
+  padding: var(--spacing-xs) 0;
+}
+
+/* --------------------------------------------------------- fretboard */
+
+.fretboard-scroll {
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+}
+
+.fretboard {
+  display: grid;
+  gap: 1px;
+  min-width: max-content;
+}
+
+.fret-cell,
+.fret-head,
+.nut {
+  font-size: 0.7rem;
+  line-height: 1.4;
+  padding: 2px 0;
+  text-align: center;
+}
+
+.nut {
+  background: var(--color-bg);
+  border-right: 2px solid var(--color-fg);
+  left: 0;
+  /* the sticky nut sits above the scrolling neck, so it needs its own padding
+     or the open-string cells slide under its border */
+  padding-right: var(--spacing-sm);
+  position: sticky;
+  text-align: right;
+  z-index: 1;
+}
+
+.fret-head {
+  border-bottom: 1px solid var(--hairline);
+  color: var(--muted);
+}
+
+.fret-head.quarter {
+  color: var(--faint);
+}
+
+.fret-head.octave {
+  color: var(--color-2);
+}
+
+.fret-cell {
+  background: none;
+  border: 1px solid transparent;
+  color: var(--faint);
+  font-family: var(--font-mono);
+  cursor: default;
+}
+
+.fret-cell.in-scale {
+  border-color: var(--color-fg);
+  color: var(--color-fg);
+  cursor: pointer;
+}
+
+/* dashed marks a pitch that does not exist in 12edo — it sits between frets a
+   guitarist already knows */
+.fret-cell.in-scale.quarter {
+  border-style: dashed;
+  color: var(--color-2);
+}
+
+.fret-cell.root {
+  background: var(--color-1);
+  border-color: var(--color-1);
+  color: var(--color-fg);
+}
+
+.fret-cell.in-scale:hover {
+  background: var(--color-fg);
+  color: var(--color-bg);
+}
+
+.fret-cell.octave-line {
+  border-left: 2px solid var(--hairline);
+}
+
+/* ------------------------------------------------------------ controls */
+
+.row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.row > label {
+  align-items: center;
+  color: var(--muted);
+  display: flex;
+  font-size: 0.8rem;
+  gap: var(--spacing-xs);
+}
+
+.row input[type="text"],
+.row input[type="number"],
+.row select {
+  width: auto;
+}
+
+.chord-grid {
+  display: grid;
+  gap: var(--spacing-xs);
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
+.chord-card {
+  border: 1px solid var(--hairline);
+  padding: var(--spacing-xs);
+}
+
+.chord-card .offsets {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.chord-card .chord-name {
+  color: var(--color-3);
+  font-size: 0.75rem;
+}
+
+.playing {
+  border-color: var(--color-3) !important;
+  color: var(--color-3) !important;
+}

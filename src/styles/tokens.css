@@ -1,0 +1,25 @@
+/* the five-colour theme, carried over from abaddon/daimon so this sits
+   alongside them visually. */
+:root {
+  --color-bg: #0d0d0d;
+  --color-fg: #e8e8e8;
+  --color-1: #c0392b;
+  --color-2: #2980b9;
+  --color-3: #27ae60;
+
+  --font-mono: "Courier New", Courier, monospace;
+  --font-sans: system-ui, -apple-system, sans-serif;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+
+  /* derived greys. there are no grey tokens: everything is a mix of fg into bg,
+     so a theme swap only ever needs the five colours above. */
+  --muted: color-mix(in srgb, var(--color-fg) 65%, var(--color-bg));
+  --faint: color-mix(in srgb, var(--color-fg) 35%, var(--color-bg));
+  --hairline: color-mix(in srgb, var(--color-fg) 20%, var(--color-bg));
+  --fill: color-mix(in srgb, var(--color-fg) 6%, var(--color-bg));
+}
